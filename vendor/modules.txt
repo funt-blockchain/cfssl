@@ -7,6 +7,17 @@ github.com/GeertJohan/go.incremental
 github.com/GeertJohan/go.rice
 github.com/GeertJohan/go.rice/embedded
 github.com/GeertJohan/go.rice/rice
+# github.com/Hyperledger-TWGC/ccs-gm v0.1.1
+github.com/Hyperledger-TWGC/ccs-gm/sm2
+github.com/Hyperledger-TWGC/ccs-gm/sm3
+github.com/Hyperledger-TWGC/ccs-gm/sm4
+github.com/Hyperledger-TWGC/ccs-gm/tls
+github.com/Hyperledger-TWGC/ccs-gm/x509
+# github.com/Hyperledger-TWGC/net-go-gm v0.0.0-20200921114008-9f44067b1d7e
+github.com/Hyperledger-TWGC/net-go-gm/http
+github.com/Hyperledger-TWGC/net-go-gm/http/httptrace
+github.com/Hyperledger-TWGC/net-go-gm/http/internal
+github.com/Hyperledger-TWGC/net-go-gm/http/internal/nettrace
 # github.com/akavel/rsrc v0.8.0
 github.com/akavel/rsrc/binutil
 github.com/akavel/rsrc/coff
@@ -94,23 +105,33 @@ github.com/zmap/zcrypto/x509/pkix
 github.com/zmap/zlint
 github.com/zmap/zlint/lints
 github.com/zmap/zlint/util
-# golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
+# golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899
+golang.org/x/crypto/chacha20
+golang.org/x/crypto/chacha20poly1305
 golang.org/x/crypto/cryptobyte
 golang.org/x/crypto/cryptobyte/asn1
+golang.org/x/crypto/curve25519
 golang.org/x/crypto/ed25519
 golang.org/x/crypto/ed25519/internal/edwards25519
+golang.org/x/crypto/internal/subtle
 golang.org/x/crypto/ocsp
 golang.org/x/crypto/pbkdf2
 golang.org/x/crypto/pkcs12
 golang.org/x/crypto/pkcs12/internal/rc2
+golang.org/x/crypto/poly1305
 golang.org/x/crypto/scrypt
 # golang.org/x/lint v0.0.0-20190930215403-16217165b5de
 golang.org/x/lint
 golang.org/x/lint/golint
-# golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3
+# golang.org/x/net v0.0.0-20200904194848-62affa334b73
 golang.org/x/net/context
 golang.org/x/net/context/ctxhttp
+golang.org/x/net/http/httpguts
+golang.org/x/net/http/httpproxy
+golang.org/x/net/http2/hpack
 golang.org/x/net/idna
+# golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd
+golang.org/x/sys/cpu
 # golang.org/x/text v0.3.2
 golang.org/x/text/secure/bidirule
 golang.org/x/text/transform

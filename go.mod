@@ -5,6 +5,8 @@ go 1.13
 require (
 	bitbucket.org/liamstask/goose v0.0.0-20150115234039-8488cc47d90c
 	github.com/GeertJohan/go.rice v1.0.0
+	github.com/Hyperledger-TWGC/ccs-gm v0.1.1
+	github.com/Hyperledger-TWGC/net-go-gm v0.0.0-20200921114008-9f44067b1d7e
 	github.com/certifi/gocertifi v0.0.0-20180118203423-deb3ae2ef261 // indirect
 	github.com/cloudflare/backoff v0.0.0-20161212185259-647f3cdfc87a
 	github.com/cloudflare/go-metrics v0.0.0-20151117154305-6a9aea36fb41
@@ -25,8 +27,8 @@ require (
 	github.com/ziutek/mymysql v1.5.4 // indirect
 	github.com/zmap/zcrypto v0.0.0-20190729165852-9051775e6a2e
 	github.com/zmap/zlint v0.0.0-20190806154020-fd021b4cfbeb
-	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
+	golang.org/x/crypto v0.0.0-20200709230013-948cd5f35899
 	golang.org/x/lint v0.0.0-20190930215403-16217165b5de
-	golang.org/x/net v0.0.0-20190404232315-eb5bcb51f2a3
+	golang.org/x/net v0.0.0-20200904194848-62affa334b73
 	golang.org/x/text v0.3.2 // indirect
 )

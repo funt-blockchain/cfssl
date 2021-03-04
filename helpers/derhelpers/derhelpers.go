@@ -6,7 +6,9 @@ import (
 	"crypto"
 	"crypto/ecdsa"
 	"crypto/rsa"
-	"crypto/x509"
+	//"crypto/x509"
+	"github.com/Hyperledger-TWGC/ccs-gm/x509"
+	"github.com/Hyperledger-TWGC/ccs-gm/sm2"
 
 	cferr "github.com/cloudflare/cfssl/errors"
 	"golang.org/x/crypto/ed25519"
@@ -41,7 +43,10 @@ func ParsePrivateKeyDER(keyDER []byte) (key crypto.Signer, err error) {
 		return generalKey.(*ecdsa.PrivateKey), nil
 	case ed25519.PrivateKey:
 		return generalKey.(ed25519.PrivateKey), nil
+	case *sm2.PrivateKey:
+		return generalKey.(*sm2.PrivateKey), nil	
 	}
+	
 
 	// should never reach here
 	return nil, cferr.New(cferr.PrivateKeyError, cferr.ParseFailed)

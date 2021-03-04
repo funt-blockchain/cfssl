@@ -7,12 +7,15 @@ import (
 	"crypto/elliptic"
 	"crypto/rsa"
 	"crypto/sha1"
-	"crypto/x509"
+	//"crypto/x509"
+	"github.com/Hyperledger-TWGC/ccs-gm/x509"
+	"github.com/Hyperledger-TWGC/ccs-gm/sm2"
 	"crypto/x509/pkix"
 	"encoding/asn1"
 	"errors"
 	"math/big"
-	"net/http"
+	//"net/http"
+	"github.com/Hyperledger-TWGC/net-go-gm/http"
 	"strings"
 	"time"
 
@@ -164,6 +167,13 @@ func DefaultSigAlgo(priv crypto.Signer) x509.SignatureAlgorithm {
 		default:
 			return x509.ECDSAWithSHA1
 		}
+	case *sm2.PublicKey:
+		switch pub.Curve {
+		case sm2.P256():
+			return x509.SM2WithSM3
+		default:
+			return x509.SM2WithSM3
+		}
 	default:
 		return x509.UnknownSignatureAlgorithm
 	}
@@ -192,7 +202,7 @@ func ParseCertificateRequest(s Signer, csrBytes []byte) (template *x509.Certific
 		DNSNames:           csrv.DNSNames,
 		IPAddresses:        csrv.IPAddresses,
 		EmailAddresses:     csrv.EmailAddresses,
-		URIs:               csrv.URIs,
+		//URIs:               csrv.URIs,
 	}
 
 	for _, val := range csrv.Extensions {
@@ -321,7 +331,7 @@ func FillTemplate(template *x509.Certificate, defaultProfile, profile *config.Si
 		}
 		template.DNSNames = nil
 		template.EmailAddresses = nil
-		template.URIs = nil
+		//template.URIs = nil
 	}
 	template.SubjectKeyId = ski
 

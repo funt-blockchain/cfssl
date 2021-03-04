@@ -7,7 +7,8 @@ import (
 	"crypto/ecdsa"
 	"crypto/elliptic"
 	"crypto/rand"
-	"crypto/x509"
+	//"crypto/x509"
+	"github.com/Hyperledger-TWGC/ccs-gm/x509"
 	"crypto/x509/pkix"
 	"encoding/asn1"
 	"encoding/hex"
@@ -201,7 +202,7 @@ func (s *Signer) sign(template *x509.Certificate, lintErrLevel lints.LintStatus,
 		}
 		template.DNSNames = nil
 		template.EmailAddresses = nil
-		template.URIs = nil
+		//template.URIs = nil
 		s.ca = template
 		initRoot = true
 	}
@@ -267,7 +268,7 @@ func OverrideHosts(template *x509.Certificate, hosts []string) {
 		template.IPAddresses = []net.IP{}
 		template.EmailAddresses = []string{}
 		template.DNSNames = []string{}
-		template.URIs = []*url.URL{}
+		//template.URIs = []*url.URL{}
 	}
 
 	for i := range hosts {
@@ -276,7 +277,7 @@ func OverrideHosts(template *x509.Certificate, hosts []string) {
 		} else if email, err := mail.ParseAddress(hosts[i]); err == nil && email != nil {
 			template.EmailAddresses = append(template.EmailAddresses, email.Address)
 		} else if uri, err := url.ParseRequestURI(hosts[i]); err == nil && uri != nil {
-			template.URIs = append(template.URIs, uri)
+			//template.URIs = append(template.URIs, uri)
 		} else {
 			template.DNSNames = append(template.DNSNames, hosts[i])
 		}
@@ -336,9 +337,9 @@ func (s *Signer) Sign(req signer.SignRequest) (cert []byte, err error) {
 		if profile.CSRWhitelist.EmailAddresses {
 			safeTemplate.EmailAddresses = csrTemplate.EmailAddresses
 		}
-		if profile.CSRWhitelist.URIs {
-			safeTemplate.URIs = csrTemplate.URIs
-		}
+		//if profile.CSRWhitelist.URIs {
+		//	safeTemplate.URIs = csrTemplate.URIs
+		//}
 	}
 
 	if req.CRLOverride != "" {
@@ -384,11 +385,11 @@ func (s *Signer) Sign(req signer.SignRequest) (cert []byte, err error) {
 				return nil, cferr.New(cferr.PolicyError, cferr.UnmatchedWhitelist)
 			}
 		}
-		for _, name := range safeTemplate.URIs {
-			if profile.NameWhitelist.Find([]byte(name.String())) == nil {
-				return nil, cferr.New(cferr.PolicyError, cferr.UnmatchedWhitelist)
-			}
-		}
+		//for _, name := range safeTemplate.URIs {
+		//	if profile.NameWhitelist.Find([]byte(name.String())) == nil {
+		//		return nil, cferr.New(cferr.PolicyError, cferr.UnmatchedWhitelist)
+		//	}
+		//}
 	}
 
 	if profile.ClientProvidesSerialNumbers {

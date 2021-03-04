@@ -10,7 +10,8 @@ package ocsp
 import (
 	"bytes"
 	"crypto"
-	"crypto/x509"
+	//"crypto/x509"
+	"github.com/Hyperledger-TWGC/ccs-gm/x509"
 	"crypto/x509/pkix"
 	"io/ioutil"
 	"strconv"
@@ -20,7 +21,8 @@ import (
 	cferr "github.com/cloudflare/cfssl/errors"
 	"github.com/cloudflare/cfssl/helpers"
 	"github.com/cloudflare/cfssl/log"
-	"golang.org/x/crypto/ocsp"
+	//"golang.org/x/crypto/ocsp"
+	"github.com/cloudflare/cfssl/internal/crypto/ocsp"
 )
 
 // revocationReasonCodes is a map between string reason codes
@@ -152,7 +154,7 @@ func NewSigner(issuer, responder *x509.Certificate, key crypto.Signer, interval 
 		interval:  interval,
 	}, nil
 }
-
+//调用到这个包功能 "golang.org/x/crypto/ocsp"  ocsp可以暂时先不用
 // Sign is used with an OCSP signer to request the issuance of
 // an OCSP response.
 func (s StandardSigner) Sign(req SignRequest) ([]byte, error) {
